@@ -56,17 +56,17 @@ sudo ldconfig
 
 3. 安装 protobuf 的 Python 模块
 
-   1. 脚本安装
+   * 脚本安装
     ``` shell
    cd ./python
    python setup.py build
-python setup.py test
+   python setup.py test
    sudo python setup.py install
     ```
    
-   2. pip安装
+   * pip安装
     ``` shell
-pip install protobuff
+    pip install protobuff
     ```
 
 4. 安装完成，验证protoc命令,若出现版本信息，则安装成功。
