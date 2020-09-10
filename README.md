@@ -8,19 +8,19 @@ protobuf简介
 Protocol Buffers 是一种具有灵活，高效，自动化机制的结构数据序列化方法－可类比 XML，但是比 XML 更小（3 ~ 10倍）、更快（20 ~ 100倍）、更为简单。
 用户可以定义数据的结构，然后使用 **Protocol Buffer compiler** 生成的源代码轻松的在各种数据流中使用各种语言进行编写和读取定义的结构数据。用户甚至可以更新数据结构，而不破坏由旧数据结构编译的已部署程序。
 
-总的来说，`protobuf` 是一种将结构数据**序列化**、**反序列化**的方法,以便于对结构数据进行存储、传输。并且`protobuf` 只需要定义一个`.proto` 的数据结构文件。即可通过 `protoc` (Protocol Buffer Compiler) 自动生成各种语言对应的 API，方便快捷的完成对数据的序列化、反序列化。
+总的来说，protobuf 是一种将结构数据**序列化**、**反序列化**的方法,以便于对结构数据进行存储、传输。并且 protobuf 只需要定义一个.proto 的数据结构文件。即可通过 protoc (Protocol Buffer Compiler) 自动生成各种语言对应的 API，方便快捷的完成对数据的序列化、反序列化。
 
 安装 protoc
 -----------
 
-1. 使用 `pre-built binary` 的 `protoc` 。
+1. 使用 pre-built binary 的 protoc 。
 通过[下载地址](https://github.com/protocolbuffers/protobuf/releases/) 选择对应平台的预编译二进制文件压缩包。将压缩包解压后，将可执行文件所在目录添加到系统环境变量。执行以下命令，出现版本信息则表示安装成功。
 
 ```
 protoc --version
 ```
 
-2. 下载 `protoc` 源码，在本地编译 `protoc` 工具。具体方法见[官方说明](https://github.com/protocolbuffers/protobuf)。
+2. 下载 protoc 源码，在本地编译 protoc 工具。具体方法见[官方说明](https://github.com/protocolbuffers/protobuf)。
 
 安装 Protobuf Runtime
 -----------
@@ -64,12 +64,12 @@ sudo ldconfig
    sudo python setup.py install
     ```
    
-   * pip安装
+   * pip安装（版本要保证与 protoc 一致）
     ``` shell
     pip install protobuff
     ```
 
-4. 安装完成，验证protoc命令,若出现版本信息，则安装成功。
+4. 安装完成，验证 protoc 命令,若出现版本信息，则安装成功。
 ```shell
 protoc --version
 ```
