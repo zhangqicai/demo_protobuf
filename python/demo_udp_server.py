@@ -9,7 +9,7 @@ import time
 def gen_person_info(people:list, count:int):
     _id = count
     _name = f"zh{count}"
-    _email = f"{count}@viz.com" 
+    _email = f"{count}@python.com" 
     
     person = pb2.Person()
     person.id = _id
