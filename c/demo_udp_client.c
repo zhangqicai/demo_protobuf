@@ -6,12 +6,12 @@
 #include <arpa/inet.h>
 #include "demo.pb-c.h"
 
-int show_info(Demo__DemoInfo *people){
+int show_info(Demo__Person **people, size_t n_people){
     int ret = 0;
     int i = 0;
     int j = 0;
-    for(i = 0; i < people->n_people; i++){
-        Demo__Person *person = people->people[i];
+    for(i = 0; i < n_people; i++){
+        Demo__Person *person = people[i];
         fprintf(stdout, "id:%u\n", person->id);
         fprintf(stdout, "name:%s\n", person->name);
         fprintf(stdout, "email:%s\n", person->email);
@@ -67,7 +67,7 @@ int main(int args, char *argv[]){
         int len = 0;
         int count = 0;
         uint8_t buf[1024] = { 0 };
-        Demo__DemoInfo *people = NULL;
+        Demo__DemoInfo *demo_info = NULL;
         while(1)
         {
             ret = recvfrom(sock, buf, 1024, 0, NULL, NULL);
@@ -76,21 +76,21 @@ int main(int args, char *argv[]){
             }
             
             len = strnlen(buf, 1024);
-            people = demo__demo_info__unpack(NULL, len, buf);
-            if( NULL == people ){
+            demo_info = demo__demo_info__unpack(NULL, len, buf);
+            if( NULL == demo_info ){
                 fprintf(stderr, "unpack failed.\n");
             }
             
-            show_info(people);
+            show_info(demo_info->people, demo_info->n_people);
             
-            demo__demo_info__free_unpacked(people, NULL);
-            people = NULL;
+            demo__demo_info__free_unpacked(demo_info, NULL);
+            demo_info = NULL;
 
             if (count++ > 10){
                 break;
             }
         }
-        demo__demo_info__free_unpacked(people, NULL);
+        demo__demo_info__free_unpacked(demo_info, NULL);
         close(sock);
         return 0;
     }while(0); 
