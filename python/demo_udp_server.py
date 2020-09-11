@@ -16,6 +16,10 @@ def gen_person_info(people:list, person_id:int, name='test', email="test@viz.com
     phone_number.number = "2222800"
     phone_number.type = pb2.Person.WORK
 
+    phone_number = person.phones.add()
+    phone_number.number = "13733994488"
+    phone_number.type = pb2.Person.MOBILE
+
     people.append(person)
 
 
