@@ -47,6 +47,21 @@
 	import google.protobuf
 	```
 
+使用说明
+-----------
+
+1. 编写 demo.proto 文件
+
+2. 使用 protoc 编译 demo.proto 文件，生成 demo_pb2.py 文件。
+
+   ```shell
+   protoc -I=../common --python_out=. demo.proto
+   ```
+
+   * **-I**： 指定 .proto 文件所在路径，未指定默认为当前目录。
+   * **--python_out**：指定输出python的接口文件路径。
+
+3. 
 
 
 参考资料
