@@ -83,6 +83,9 @@ int main(int args, char *argv[]){
             
             show_info(people);
             
+            demo__demo_info__free_unpacked(people, NULL);
+            people = NULL;
+
             if (count++ > 10){
                 break;
             }
