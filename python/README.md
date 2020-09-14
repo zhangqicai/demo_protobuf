@@ -1,5 +1,5 @@
-安装 protobuf-python（Ubuntu）
------------
+## 安装 protobuf-python（Ubuntu）
+
 
 1. 安装依赖
 
@@ -47,8 +47,8 @@
 	import google.protobuf
 	```
 
-使用说明
------------
+## 使用说明
+
 
 1. 编写 demo.proto 文件
 
@@ -62,6 +62,38 @@
    * **--python_out**：指定输出python的接口文件路径。
 
 3. 调用自动生成的 API 完成相应功能。 
+
+## 基本 API 说明
+
+定义一个名为 demo.proto 文件，如下所示
+```C
+message Person {
+    int32 id = 1;
+    string name = 2;
+    string email = 3;
+
+    enum PhoneType {
+        MOBILE = 0;
+        HOME = 1;
+        WORK = 2;
+    } 
+
+    message PhoneNumber {
+        string number = 1;
+        PhoneType type = 2;
+    }
+
+    repeated PhoneNumber phones = 4;
+}
+
+message demo_info {
+    repeated Person people = 1;
+}
+```
+
+自动生成的 API 命名为： 以下为demo.proto文件中根据 person message自动生成的 api
+
+pass
 
 参考资料
 -----------

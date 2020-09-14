@@ -42,9 +42,9 @@ message 定义中的每个字段都有**唯一编号**。这些数字以 [messag
 
 ```
 message SearchRequest {
-  required string query = 1;
-  optional int32 page_number = 2;
-  optional int32 result_per_page = 3;
+  singular string query = 1;
+  repeated int32 page_number = 2;
+  repeated int32 result_per_page = 3;
 }
 
 message SearchResponse {
@@ -63,9 +63,9 @@ message SearchResponse {
  * indicate which results to include in the response. */
 
 message SearchRequest {
-  required string query = 1;
-  optional int32 page_number = 2;  // Which page number do we want?
-  optional int32 result_per_page = 3;  // Number of results to return per page.
+  singular string query = 1;
+  singular int32 page_number = 2;  // Which page number do we want?
+  singular int32 result_per_page = 3;  // Number of results to return per page.
 }
 ```
 
